@@ -7,20 +7,20 @@ class Animal:
 class Rabbits(Animal):
     RabbitHealth = 100
     def Days(self):
-        Animal.age = Animal.age + 1
-        print(Animal.age)
-        if Animal.age > 366:
-            Animal.frailty = Animal.frailty+ 1
+        self.age = self.age + 1
+        print(self.age)
+        if self.age > 366:
+            self.frailty = self.frailty+ 1
         else:
-            Animal.frailty = Animal.frailty + 0
-        if Animal.frailty == 50:
+            self.frailty = self.frailty + 0
+        if self.frailty == 50:
             Disease = random.randint(1,5)
             if Disease == 1 or Disease == 3 or Disease == 5:
                 RabbitHealth = 0
                 DeadRabbits.append(Rabbits)
             elif Disease == 2 or Disease == 4:
                 RabbitHealth = 80
-        Rabbits.Food()
+        self.Food()
 
     def Food(self):
         RabbitFood = 150
@@ -65,8 +65,11 @@ BabyRabbits = []
 AliveRabbits = [Rabbits(1,0,"M"), Rabbits(1,0,"F")]
 DeadRabbits = []
 PregnantRabbits = []
-Rabbits.Days()
-Rabbits.WeeklyReport()
+AliveRabbits[0].Days()
+#Rabbits.WeeklyReport()
+
+for rabbit in AliveRabbits:
+    rabbit.Days()
 
 
 
